@@ -7,7 +7,9 @@ pipeline {
     stages {
         stage('Build'){
             steps {
-                docker.build("valhalla-qa")
+                scripts {
+                    docker.build("valhalla-qa")
+                }
             }
         }
         stage('Deploy'){
@@ -16,7 +18,9 @@ pipeline {
                 SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENT_SECRET=credentials('github-oauth-valhalla-qa')
             }
             steps {
-                sh 'docker-compose up -d'
+                scripts {
+                    sh 'docker-compose up -d'
+                }
             }
         }
     }

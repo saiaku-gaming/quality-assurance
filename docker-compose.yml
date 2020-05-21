@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=qa
+  volumes:
+    - /opt/qa/postgres:/var/lib/postgresql/data
+  web:
+    image: valhalla-qa
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENT_SECRET
+    ports:
+      - "9876:8080"
+    volumes:
+      - /opt/qa/data:/app/data

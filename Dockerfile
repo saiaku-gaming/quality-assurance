@@ -6,12 +6,19 @@ RUN npm install
 COPY frontend .
 RUN npm run build
 
+# prepare maven
+FROM maven:3-jdk-11 as backend-maven-build-stage
+WORKDIR /build
+COPY pom.xml .
+RUN mvn -B dependency:resolve dependency:resolve-plugins
+RUN mvn dependency:go-offline
+
 # backend build stage
 FROM maven:3-jdk-11 as backend-build-stage
 WORKDIR /build
-COPY pom.xml /build
-RUN mvn -B dependency:resolve dependency:resolve-plugins
+COPY pom.xml .
 COPY src /build/src
+COPY --from=backend-maven-build-stage /root/.m2 /root/.m2
 COPY --from=frontend-build-stage /app/dist /build/src/main/resources/static/
 RUN mvn package
 

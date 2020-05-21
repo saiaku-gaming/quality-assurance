@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RestController
 class CrashController {
     @GetMapping("/list")
     fun listCrashes(): Map<String, Any> {
-        return mapOf("hello" to "world")
+        return mapOf("hello" to "WORLD!")
     }
 }

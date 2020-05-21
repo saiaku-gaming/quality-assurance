@@ -6,8 +6,8 @@ services:
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
       - POSTGRES_USER=qa
-  volumes:
-    - "/opt/qa/postgres:/var/lib/postgresql/data"
+    volumes:
+     - "/opt/qa/postgres:/var/lib/postgresql/data"
   web:
     image: valhalla-qa
     restart: always

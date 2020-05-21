@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.8'
 
 services:
   db:
@@ -7,7 +7,7 @@ services:
       - POSTGRES_HOST_AUTH_METHOD=trust
       - POSTGRES_USER=qa
   volumes:
-    - /opt/qa/postgres:/var/lib/postgresql/data
+    - "/opt/qa/postgres:/var/lib/postgresql/data"
   web:
     image: valhalla-qa
     restart: always
@@ -19,4 +19,4 @@ services:
     ports:
       - "9876:8080"
     volumes:
-      - /opt/qa/data:/app/data
+      - "/opt/qa/data:/app/data"

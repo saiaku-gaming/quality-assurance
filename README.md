@@ -20,8 +20,8 @@ Pushing the master branch will deploy this to gungnir.
 
 The process is as follows:
 
-The first build step will build a single page app and then place it in src/main/resources/static/
+Jenkins will use the Jenkinsfile as the build definition.
 
-The next step will build and create a docker image of the spring boot application.
+It will in turn build with docker using the Dockerfile
 
-The third step will deploy the docker image to gungnir with correct passwords and mounted volumes.
+Once built it will run the docker-compose.yml to make sure everything is up and running. 

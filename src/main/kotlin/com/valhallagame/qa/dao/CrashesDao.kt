@@ -13,7 +13,8 @@ interface CrashesDao {
 
     @SqlUpdate("""
         INSERT INTO crashes (path_on_disc, user_description, crash_in_version)
-        VALUES (:filePath, :description, :version)
+        VALUES (:filePath, :description, :version) ON CONFLICT (path_on_disc) 
+        DO UPDATE SET user_description = :description, crash_in_version = :version WHERE crashes.path_on_disc = :filePath 
         """)
     fun insertCrash(@Bind("filePath") filePath: String,
                     @Bind("description") description: String,

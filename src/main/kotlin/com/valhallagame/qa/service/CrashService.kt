@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service
 import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.Path
+import java.nio.file.StandardCopyOption
 
 @Service
 class CrashService(private val crashesDao: CrashesDao) {
@@ -13,7 +14,7 @@ class CrashService(private val crashesDao: CrashesDao) {
 
     fun storeFileOnDisk(stream: InputStream, name: String): Path {
         val path = storage.resolve(name)
-        Files.copy(stream, path)
+        Files.copy(stream, path, StandardCopyOption.REPLACE_EXISTING)
         return path
     }
 

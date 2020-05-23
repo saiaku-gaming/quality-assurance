@@ -35,7 +35,7 @@ class PublicCrashController(private val crashService: CrashService) {
             val name: String = item.fieldName
             val stream: InputStream = item.openStream()
             if (!item.isFormField) {
-                pathOnDisk = crashService.storeFileOnDisk(stream, name)
+                pathOnDisk = crashService.storeFileOnDisk(stream, item.name)
             } else {
                 val formFieldValue: String = Streams.asString(stream)
                 if (name == "description") {

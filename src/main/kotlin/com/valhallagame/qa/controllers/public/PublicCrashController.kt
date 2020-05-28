@@ -1,5 +1,6 @@
 package com.valhallagame.qa.controllers.public
 
+import com.valhallagame.qa.client.JenkinsClient
 import com.valhallagame.qa.service.CrashService
 import org.apache.commons.fileupload.FileItemIterator
 import org.apache.commons.fileupload.FileItemStream
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletRequest
 
 @RestController
 @RequestMapping("/public/crash")
-class PublicCrashController(private val crashService: CrashService) {
+class PublicCrashController(private val crashService: CrashService, private val jenkinsClient: JenkinsClient) {
 
     var logger: Logger = LoggerFactory.getLogger(PublicCrashController::class.java)
 
@@ -50,7 +51,8 @@ class PublicCrashController(private val crashService: CrashService) {
             throw IOException("Missing file!")
         }
         logger.info("adding crash report $pathOnDisk, $userDescription, $version")
-        crashService.addCrashReport(pathOnDisk, userDescription, version)
+        val id = crashService.addCrashReport(pathOnDisk, userDescription, version)
+        jenkinsClient.triggerStacktraceParse(id)
         return mapOf("status" to "ok")
     }
 }

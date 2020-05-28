@@ -3,6 +3,7 @@ package com.valhallagame.qa.dao
 import org.jdbi.v3.core.mapper.RowMapper
 import org.jdbi.v3.core.statement.StatementContext
 import org.jdbi.v3.sqlobject.customizer.Bind
+import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys
 import org.jdbi.v3.sqlobject.statement.SqlQuery
 import org.jdbi.v3.sqlobject.statement.SqlUpdate
 import org.jdbi.v3.sqlobject.statement.UseRowMapper
@@ -16,15 +17,22 @@ interface CrashesDao {
         VALUES (:filePath, :description, :version) ON CONFLICT (path_on_disc) 
         DO UPDATE SET user_description = :description, crash_in_version = :version WHERE crashes.path_on_disc = :filePath 
         """)
+    @GetGeneratedKeys
     fun insertCrash(@Bind("filePath") filePath: String,
                     @Bind("description") description: String,
-                    @Bind("version") version: String)
+                    @Bind("version") version: String): Long
 
     @SqlQuery("""
        SELECT * FROM crashes 
     """)
     @UseRowMapper(CrashMetadataRowMapper::class)
     fun listsCrashes(): List<CrashMetadata>
+
+    @SqlQuery("""
+        SELECT * FROM crashes WHERE id = :id
+    """)
+    @UseRowMapper(CrashMetadataRowMapper::class)
+    fun getCrash(@Bind("id") id: Long): CrashMetadata
 }
 
 class CrashMetadataRowMapper : RowMapper<CrashMetadata> {

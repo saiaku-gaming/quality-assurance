@@ -16,6 +16,7 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=prod
       - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENT_SECRET
+      - JENKINS_API_TOKEN
     ports:
       - "9876:8080"
     volumes:

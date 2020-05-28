@@ -18,6 +18,7 @@ pipeline {
             environment {
                 SPRING_PROFILES_ACTIVE="prod"
                 SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_GITHUB_CLIENT_SECRET=credentials('github-oauth-valhalla-qa')
+                JENKINS_API_TOKEN=credentials('quality-assurance-api-token')
             }
             steps {
                 script {

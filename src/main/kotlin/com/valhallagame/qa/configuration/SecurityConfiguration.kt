@@ -16,27 +16,15 @@ import javax.servlet.http.HttpServletRequest
 
 @Configuration
 @Profile("prod")
-@Order(2)
-class OauthConfig : WebSecurityConfigurerAdapter() {
+@Order(1)
+class BasicConfig : WebSecurityConfigurerAdapter() {
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
-
         http.requestMatcher(BasicRequestMatcher())
                 .authorizeRequests()
                 .antMatchers("/**").authenticated()
                 .and()
                 .httpBasic()
-
-        http.authorizeRequests()
-                .antMatchers("/public/**")
-                .permitAll()
-                .and()
-                .authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .oauth2Login()
-        http.cors().and().csrf().disable()
     }
 
     @Bean
@@ -56,8 +44,26 @@ class OauthConfig : WebSecurityConfigurerAdapter() {
             return auth != null && auth.startsWith("Basic")
         }
     }
+}
 
+@Configuration
+@Profile("prod")
+@Order(2)
+class OauthAndPublicConfig : WebSecurityConfigurerAdapter() {
+    @Throws(Exception::class)
+    override fun configure(http: HttpSecurity) {
 
+        http.authorizeRequests()
+                .antMatchers("/public/**")
+                .permitAll()
+                .and()
+                .authorizeRequests()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .oauth2Login()
+        http.cors().and().csrf().disable()
+    }
 }
 
 

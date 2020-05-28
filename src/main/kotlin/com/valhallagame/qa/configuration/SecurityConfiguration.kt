@@ -22,7 +22,7 @@ class SecurityConfigProd : WebSecurityConfigurerAdapter() {
                 .permitAll()
                 .and()
                 .authorizeRequests()
-                .anyRequest()
+                .antMatchers("/**")
                 .hasRole("JENKINS")
                 .and()
                 .httpBasic()

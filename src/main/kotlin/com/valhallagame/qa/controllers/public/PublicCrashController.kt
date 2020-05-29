@@ -21,7 +21,9 @@ import javax.servlet.http.HttpServletRequest
 @RequestMapping("/public/crash")
 class PublicCrashController(private val crashService: CrashService, private val jenkinsClient: JenkinsClient) {
 
-    var logger: Logger = LoggerFactory.getLogger(PublicCrashController::class.java)
+    companion object {
+        private val logger = LoggerFactory.getLogger(PublicCrashController::class.java)
+    }
 
     @PostMapping(path = ["/add"], consumes = ["multipart/form-data"])
     fun addCrash(request: HttpServletRequest): Map<String, String> {

@@ -1,6 +1,7 @@
 package com.valhallagame.qa.configuration
 
 import com.valhallagame.qa.dao.CrashesDao
+import com.valhallagame.qa.dao.ReplayDao
 import org.jdbi.v3.core.Jdbi
 import org.jdbi.v3.core.kotlin.KotlinPlugin
 import org.jdbi.v3.postgres.PostgresPlugin
@@ -24,5 +25,10 @@ class JdbiConfiguration {
     @Bean
     fun crashesDao(jdbi: Jdbi): CrashesDao? {
         return jdbi.onDemand<CrashesDao>()
+    }
+
+    @Bean
+    fun replayDao(jdbi: Jdbi): ReplayDao? {
+        return jdbi.onDemand<ReplayDao>()
     }
 }

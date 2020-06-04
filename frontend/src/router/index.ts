@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Home from '../components/Home.vue';
-import CrashList from '../components/CrashList.vue';
+import Home from '@/views/Home.vue';
+import CrashList from '@/views/CrashList.vue';
 
 Vue.config.productionTip = false;
 

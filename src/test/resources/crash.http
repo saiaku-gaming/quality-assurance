@@ -22,7 +22,7 @@ Development1234567
 
 ###
 
-POST http://localhost:8080/api/crash/4/diagnostics
+POST http://localhost:8080/api/crash/1/diagnostics
 Content-Type: multipart/form-data; boundary=WebAppBoundary
 
 --WebAppBoundary

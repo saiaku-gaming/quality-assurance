@@ -1,12 +1,14 @@
 <template>
   <div>
+    <v-slider v-model="strength" min="1" max="100" label="Strength" />
+    {{ this.strength }}
     <div ref="heatmap" class="heatmap" />
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
-import h337 from 'heatmap.js';
+import { Vue, Component, Watch } from 'vue-property-decorator';
+import h337, { Heatmap } from 'heatmap.js';
 
 interface Replay {
   mapName: string;
@@ -33,19 +35,29 @@ interface Vector {
   z: number;
 }
 
+interface DataPoint {
+  x: number;
+  y: number;
+  value: number;
+}
+
 type Action = 'MOVE' | 'DEATH';
 
 @Component
 export default class DungeonMaps extends Vue {
+  private strength = 2;
+  private dataPoints: DataPoint[] = [];
+  private heatmap: Heatmap<'value', 'x', 'y'> | null = null;
+
   mounted() {
-    const heatmap = h337.create({
+    this.heatmap = h337.create({
       container: this.$refs.heatmap as HTMLDivElement
     });
 
     fetch('/api/replay/MissvedenMap')
       .then(response => response.json())
       .then((replays: Replay[]) => {
-        const things = replays
+        this.dataPoints = replays
           .map(replay => {
             return replay.dungeonRuns.map(dungeonRun => {
               return dungeonRun.players.map(player => {
@@ -63,7 +75,7 @@ export default class DungeonMaps extends Vue {
                     ((action.location.y + heightOffset) / heightMax) * 858
                   );
 
-                  return { x, y, value: 2 };
+                  return { x, y, value: this.strength };
                 });
               });
             });
@@ -71,12 +83,28 @@ export default class DungeonMaps extends Vue {
           .flat()
           .flat()
           .flat();
-        heatmap.setData({
-          max: things.length,
+        this.heatmap?.setData({
+          max: this.dataPoints.length,
           min: 0,
-          data: things
+          data: this.dataPoints
         });
       });
+  }
+
+  @Watch('strength')
+  onStrengthChange() {
+    this.dataPoints = this.dataPoints.map(dataPoint => {
+      return {
+        ...dataPoint,
+        value: this.strength
+      };
+    });
+
+    this.heatmap?.setData({
+      max: this.dataPoints.length,
+      min: 0,
+      data: this.dataPoints
+    });
   }
 }
 </script>

@@ -39,7 +39,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import axios from 'axios';
 
 interface Header {
   text: string;
@@ -65,7 +64,9 @@ export default class CrashList extends Vue {
   }
 
   mounted() {
-    axios.get('/api/crash/list').then(response => (this.items = response.data));
+    fetch('/api/crash/list')
+      .then(response => response.json())
+      .then(json => (this.items = json.data));
   }
 }
 </script>

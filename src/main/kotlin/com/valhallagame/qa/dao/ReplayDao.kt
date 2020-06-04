@@ -50,6 +50,21 @@ interface ReplayDao {
     """)
     @UseRowReducer(ReplayReducer::class)
     fun getReplay(@Bind("replayId") replayId: Long): Replay?
+
+    @SqlQuery("""
+        SELECT
+            r.replay_id, r.map_name,
+            dr.dungeon_run_id,
+            rp.replay_player_id, rp.name,
+            ra.replay_action_id, ra.action, ra.pos_x, ra.pos_y, ra.pos_z
+        FROM replay r
+            JOIN dungeon_run dr ON(r.replay_id = dr.replay_id)
+            JOIN replay_player rp ON(dr.dungeon_run_id = rp.dungeon_run_id)
+            JOIN replay_action ra ON(rp.replay_player_id = ra.replay_player_id)
+        WHERE r.map_name = :mapName
+    """)
+    @UseRowReducer(ReplayReducer::class)
+    fun getReplaysFromMapName(@Bind("mapName") mapName: String): List<Replay>
 }
 
 class ReplayReducer : LinkedHashMapRowReducer<Long, Replay> {
@@ -121,7 +136,7 @@ data class ReplayPlayer (
 data class ReplayAction (
         val id: Long = -1,
         val action: Action = Action.MOVE,
-        val vector: Vector = Vector()
+        val location: Vector = Vector()
 )
 
 data class Vector (

@@ -17,6 +17,7 @@ class PublicReplayController(private val replayService: ReplayService) {
 
     @PostMapping(consumes = ["application/json"])
     fun addReplay(@RequestBody replay: Replay): Map<String, String> {
+        logger.info(replay.toString())
         replayService.addReplay(replay)
         return mapOf("status" to "ok")
     }

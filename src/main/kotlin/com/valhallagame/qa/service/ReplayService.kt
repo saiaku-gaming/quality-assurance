@@ -2,7 +2,6 @@ package com.valhallagame.qa.service
 
 import com.valhallagame.qa.dao.*
 import org.springframework.stereotype.Service
-import java.lang.RuntimeException
 
 @Service
 class ReplayService(private val replayDao: ReplayDao) {
@@ -13,6 +12,10 @@ class ReplayService(private val replayDao: ReplayDao) {
     fun addReplay(replay: Replay) {
         val replayId = replayDao.insertReplay(replay.mapName)
         replay.dungeonRuns.forEach { addDungeonRun(replayId, it) }
+    }
+
+    fun getReplaysFromMapName(mapName: String): List<Replay> {
+        return replayDao.getReplaysFromMapName(mapName);
     }
 
     private fun addDungeonRun(replayId: Long, dungeonRun: DungeonRun) {
@@ -27,6 +30,6 @@ class ReplayService(private val replayDao: ReplayDao) {
 
     private fun addReplayAction(replayPlayerId: Long, replayAction: ReplayAction) {
         replayDao.insertReplayAction(replayPlayerId, replayAction.action.name,
-                replayAction.vector.x, replayAction.vector.y, replayAction.vector.z)
+                replayAction.location.x, replayAction.location.y, replayAction.location.z)
     }
 }

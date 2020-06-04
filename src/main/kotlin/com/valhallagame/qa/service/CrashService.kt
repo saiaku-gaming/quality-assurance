@@ -12,7 +12,7 @@ import java.nio.file.StandardCopyOption
 @Service
 class CrashService(private val crashesDao: CrashesDao, environment: Environment) {
 
-    val storage: Path = if(environment.activeProfiles.contains("prod")){
+    val storage: Path = if(environment.activeProfiles.contains("prod")) {
         Path.of("/app/data")
     } else {
         Files.createTempDirectory("test")

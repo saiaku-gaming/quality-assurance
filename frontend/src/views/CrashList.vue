@@ -31,7 +31,7 @@ export default class CrashList extends Vue {
   }
 
   mounted() {
-    axios.get('/crash/list').then(response => (this.items = response.data));
+    axios.get('/api/crash/list').then(response => (this.items = response.data));
   }
 }
 </script>

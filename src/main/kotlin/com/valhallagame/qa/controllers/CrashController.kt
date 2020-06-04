@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController
 import java.io.FileInputStream
 
 @RestController
-@RequestMapping("/crash")
+@RequestMapping("/api/crash")
 class CrashController(private val crashesDao: CrashesDao, private val crashService: CrashService) {
     @GetMapping("/list")
     fun listCrashes(): List<CrashMetadata> {

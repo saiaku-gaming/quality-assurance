@@ -1,0 +1,153 @@
+Generating report for minidump
+
+Application version 4.25.0-13144385+++UE4+Release-4.25
+ ... built from changelist 13144385
+
+OS version 10.0.0.18362
+Running 16 x64 processors
+Exception was "Access violation - code c0000005 (first/second chance not available)"
+
+Source context from ""
+
+<SOURCE START>
+<SOURCE END>
+
+<CALLSTACK START>
+valhalla
+valhalla
+valhalla
+valhalla
+<CALLSTACK END>
+
+128 loaded modules
+                            valhalla.exe             (4.25.0.0) 0x000000007de30000 0x08d54000 valhalla/binaries/win64
+               gameoverlayrenderer64.dll              (1.0.0.1) 0x00000000a5890000 0x001de000 C:\Program Files (x86)\Steam
+                       steamclient64.dll              (3.0.0.1) 0x000000009cdb0000 0x0125c000 C:\Program Files (x86)\Steam
+                           tier0_s64.dll              (1.0.0.1) 0x00000000a5550000 0x00174000 C:\Program Files (x86)\Steam
+                         vstdlib_s64.dll              (3.0.0.1) 0x00000000a56d0000 0x0007c000 C:\Program Files (x86)\Steam
+                            advapi32.dll       (10.0.18362.752) 0x00000000524d0000 0x000a3000 C:\Windows\System32
+                            amdihk64.dll           (2.0.0.1788) 0x0000000044fe0000 0x0002e000 C:\Windows\System32
+                             apphelp.dll         (10.0.18362.1) 0x000000004d5d0000 0x0008f000 C:\Windows\System32
+                            atiadlxx.dll         (7.19.50.1373) 0x00000000096d0000 0x001ae000 C:\Windows\System32
+                            aticfx64.dll         (8.17.10.1680) 0x0000000011bf0000 0x0002a000 C:\Windows\System32
+                            atidxx64.dll              (0.0.0.0) 0x0000000013970000 0x0001c000 C:\Windows\System32
+                            AudioSes.dll       (10.0.18362.815) 0x0000000048a10000 0x0015d000 C:\Windows\System32
+                                avrt.dll         (10.0.18362.1) 0x000000004b930000 0x0000a000 C:\Windows\System32
+                              bcrypt.dll       (10.0.18362.267) 0x00000000505f0000 0x00026000 C:\Windows\System32
+                    bcryptPrimitives.dll       (10.0.18362.836) 0x0000000050400000 0x00080000 C:\Windows\System32
+                            cfgmgr32.dll       (10.0.18362.387) 0x0000000050620000 0x0004a000 C:\Windows\System32
+                             clbcatq.dll         (10.0.18362.1) 0x0000000051f90000 0x000a2000 C:\Windows\System32
+                             combase.dll       (10.0.18362.815) 0x0000000051a70000 0x00336000 C:\Windows\System32
+                            comdlg32.dll       (10.0.18362.815) 0x0000000050ea0000 0x000d0000 C:\Windows\System32
+                       CoreMessaging.dll       (10.0.18362.836) 0x000000004d2f0000 0x000d4000 C:\Windows\System32
+                    CoreUIComponents.dll       (10.0.18362.207) 0x000000004b340000 0x0032a000 C:\Windows\System32
+                             crypt32.dll       (10.0.18362.592) 0x0000000050480000 0x00149000 C:\Windows\System32
+                           CRYPTBASE.DLL         (10.0.18362.1) 0x000000004ee20000 0x0000c000 C:\Windows\System32
+                             cryptsp.dll         (10.0.18362.1) 0x00000000505d0000 0x00017000 C:\Windows\System32
+                               d3d11.dll       (10.0.18362.387) 0x000000004c6b0000 0x0025b000 C:\Windows\System32
+                                d3d9.dll       (10.0.18362.387) 0x0000000040ed0000 0x001c7000 C:\Windows\System32
+                      D3DCOMPILER_43.dll        (9.29.952.3111) 0x0000000094c10000 0x0026f000 C:\Windows\System32
+                        dataexchange.dll       (10.0.18362.836) 0x000000003f9e0000 0x0003a000 C:\Windows\System32
+                               dcomp.dll       (10.0.18362.836) 0x000000004cda0000 0x001dc000 C:\Windows\System32
+                              devobj.dll       (10.0.18362.387) 0x000000004f280000 0x0002a000 C:\Windows\System32
+                            dhcpcsvc.dll       (10.0.18362.815) 0x00000000482f0000 0x0001c000 C:\Windows\System32
+                           dhcpcsvc6.DLL       (10.0.18362.815) 0x0000000048310000 0x00016000 C:\Windows\System32
+                            aticfx64.dll         (8.17.10.1680) 0x0000000047640000 0x001d7000 C:\Windows\System32\DriverStore\FileRepository\u0353065.inf_amd64_2af28622e162cc90\B353014
+                            atidxx64.dll          (8.17.10.927) 0x0000000045d00000 0x018ee000 C:\Windows\System32\DriverStore\FileRepository\u0353065.inf_amd64_2af28622e162cc90\B353014
+                            atiuxp64.dll          (8.14.1.6564) 0x00000000475f0000 0x00036000 C:\Windows\System32\DriverStore\FileRepository\u0353065.inf_amd64_2af28622e162cc90\B353014
+                              dsound.dll         (10.0.18362.1) 0x0000000091070000 0x00099000 C:\Windows\System32
+                              dwmapi.dll       (10.0.18362.267) 0x000000004dbe0000 0x0002d000 C:\Windows\System32
+                              DXCore.dll         (10.0.18362.1) 0x000000004e0b0000 0x00020000 C:\Windows\System32
+                                dxgi.dll       (10.0.18362.815) 0x000000004e140000 0x000eb000 C:\Windows\System32
+                       explorerframe.dll       (10.0.18362.418) 0x000000002a250000 0x00205000 C:\Windows\System32
+                              gameux.dll         (10.0.18362.1) 0x0000000041eb0000 0x0000b000 C:\Windows\System32
+                               gdi32.dll         (10.0.18362.1) 0x0000000052410000 0x00026000 C:\Windows\System32
+                           gdi32full.dll       (10.0.18362.836) 0x000000004f5f0000 0x00194000 C:\Windows\System32
+                               glu32.dll       (10.0.18362.387) 0x0000000017910000 0x0002c000 C:\Windows\System32
+                            imagehlp.dll         (10.0.18362.1) 0x0000000051a50000 0x0001d000 C:\Windows\System32
+                               imm32.dll       (10.0.18362.387) 0x0000000051a10000 0x0002e000 C:\Windows\System32
+                           InputHost.dll       (10.0.18362.836) 0x0000000042e90000 0x0011b000 C:\Windows\System32
+                            IPHLPAPI.DLL         (10.0.18362.1) 0x000000004e9c0000 0x0003a000 C:\Windows\System32
+                      kernel.appcore.dll         (10.0.18362.1) 0x000000004f4c0000 0x00011000 C:\Windows\System32
+                            kernel32.dll       (10.0.18362.778) 0x0000000050f70000 0x000b2000 C:\Windows\System32
+                          KERNELBASE.dll       (10.0.18362.815) 0x000000004fff0000 0x002a4000 C:\Windows\System32
+                                  mf.dll       (10.0.18362.657) 0x000000003fa20000 0x00082000 C:\Windows\System32
+                              mfplat.dll       (10.0.18362.836) 0x0000000049ac0000 0x001fa000 C:\Windows\System32
+                              MFPlay.dll       (10.0.18362.145) 0x000000000c440000 0x00089000 C:\Windows\System32
+                            MMDevAPI.dll       (10.0.18362.387) 0x0000000048780000 0x00072000 C:\Windows\System32
+                              msasn1.dll         (10.0.18362.1) 0x000000004f4e0000 0x00012000 C:\Windows\System32
+                               msctf.dll       (10.0.18362.752) 0x0000000050c00000 0x00136000 C:\Windows\System32
+                            msvcp140.dll        (14.25.28508.3) 0x00000000157d0000 0x00091000 C:\Windows\System32
+                           msvcp_win.dll       (10.0.18362.815) 0x000000004f550000 0x0009e000 C:\Windows\System32
+                              msvcrt.dll         (10.0.18362.1) 0x0000000050670000 0x0009e000 C:\Windows\System32
+                             mswsock.dll       (10.0.18362.815) 0x000000004eca0000 0x00067000 C:\Windows\System32
+                            netapi32.dll         (10.0.18362.1) 0x000000003da20000 0x00017000 C:\Windows\System32
+                            netutils.dll         (10.0.18362.1) 0x000000004ead0000 0x0000c000 C:\Windows\System32
+                            normaliz.dll         (10.0.18362.1) 0x0000000052440000 0x00008000 C:\Windows\System32
+                                 nsi.dll       (10.0.18362.449) 0x0000000051a40000 0x00008000 C:\Windows\System32
+                               ntdll.dll       (10.0.18362.815) 0x00000000525c0000 0x001f0000 C:\Windows\System32
+                             ntmarta.dll         (10.0.18362.1) 0x000000004e4a0000 0x00031000 C:\Windows\System32
+                               ole32.dll       (10.0.18362.693) 0x0000000050d40000 0x00157000 C:\Windows\System32
+                            oleaut32.dll       (10.0.18362.836) 0x0000000051e10000 0x000c4000 C:\Windows\System32
+                            opengl32.dll       (10.0.18362.387) 0x000000000b990000 0x00156000 C:\Windows\System32
+                            powrprof.dll         (10.0.18362.1) 0x000000004f500000 0x0004a000 C:\Windows\System32
+                             profapi.dll       (10.0.18362.693) 0x000000004f490000 0x00023000 C:\Windows\System32
+                             propsys.dll        (7.0.18362.815) 0x000000004bdf0000 0x000f0000 C:\Windows\System32
+                               psapi.dll         (10.0.18362.1) 0x0000000052300000 0x00008000 C:\Windows\System32
+                resourcepolicyclient.dll         (10.0.18362.1) 0x000000004daf0000 0x00014000 C:\Windows\System32
+                            rmclient.dll       (10.0.18362.267) 0x000000004dda0000 0x00029000 C:\Windows\System32
+                              rpcrt4.dll       (10.0.18362.628) 0x0000000052040000 0x00120000 C:\Windows\System32
+                             RTWorkQ.dll         (10.0.18362.1) 0x0000000049a90000 0x0002f000 C:\Windows\System32
+                             sechost.dll       (10.0.18362.693) 0x0000000052310000 0x00097000 C:\Windows\System32
+                             secur32.dll         (10.0.18362.1) 0x0000000040c50000 0x0000c000 C:\Windows\System32
+                            setupapi.dll         (10.0.18362.1) 0x0000000050710000 0x00470000 C:\Windows\System32
+                              SHCore.dll       (10.0.18362.836) 0x0000000051ee0000 0x000a9000 C:\Windows\System32
+                             shell32.dll       (10.0.18362.815) 0x0000000051030000 0x006e4000 C:\Windows\System32
+                             shlwapi.dll         (10.0.18362.1) 0x0000000051790000 0x00052000 C:\Windows\System32
+                              srvcli.dll         (10.0.18362.1) 0x000000003d9f0000 0x00026000 C:\Windows\System32
+                             sspicli.dll         (10.0.18362.1) 0x000000004f370000 0x0002f000 C:\Windows\System32
+                  TextInputFramework.dll       (10.0.18362.693) 0x0000000042fb0000 0x0009e000 C:\Windows\System32
+                     twinapi.appcore.dll       (10.0.18362.836) 0x000000004d880000 0x00261000 C:\Windows\System32
+                            ucrtbase.dll       (10.0.18362.815) 0x00000000502a0000 0x000fa000 C:\Windows\System32
+                    UIAutomationCore.DLL       (10.0.18362.693) 0x0000000030690000 0x00270000 C:\Windows\System32
+                               umpdc.dll              (0.0.0.0) 0x000000004f480000 0x00010000 C:\Windows\System32
+                              user32.dll       (10.0.18362.836) 0x0000000052160000 0x00194000 C:\Windows\System32
+                             uxtheme.dll       (10.0.18362.449) 0x000000004d730000 0x00099000 C:\Windows\System32
+                        VCRUNTIME140.dll        (14.25.28508.3) 0x0000000026c60000 0x00019000 C:\Windows\System32
+                      VCRUNTIME140_1.dll        (14.25.28508.3) 0x000000003da80000 0x0000c000 C:\Windows\System32
+                             version.dll         (10.0.18362.1) 0x0000000047630000 0x0000a000 C:\Windows\System32
+                              win32u.dll       (10.0.18362.836) 0x000000004ff10000 0x00021000 C:\Windows\System32
+                     windows.storage.dll       (10.0.18362.836) 0x000000004f790000 0x0077e000 C:\Windows\System32
+                          Windows.UI.dll       (10.0.18362.836) 0x0000000043680000 0x00151000 C:\Windows\System32
+                             winhttp.dll       (10.0.18362.778) 0x0000000045950000 0x000f0000 C:\Windows\System32
+                               winmm.dll         (10.0.18362.1) 0x000000004c910000 0x00024000 C:\Windows\System32
+                           WINMMBASE.dll         (10.0.18362.1) 0x000000004c0c0000 0x0002d000 C:\Windows\System32
+                            wintrust.dll       (10.0.18362.387) 0x00000000758f0000 0x0005c000 C:\Windows\System32
+                            WinTypes.dll       (10.0.18362.836) 0x000000004b100000 0x00153000 C:\Windows\System32
+                             Wldap32.dll       (10.0.18362.449) 0x0000000051720000 0x00068000 C:\Windows\System32
+                              ws2_32.dll       (10.0.18362.387) 0x00000000517f0000 0x0006f000 C:\Windows\System32
+                         X3DAudio1_7.dll          (9.28.1886.0) 0x0000000061450000 0x00009000 C:\Windows\System32
+                           XAPOFX1_5.dll          (9.29.1962.0) 0x0000000015870000 0x00015000 C:\Windows\System32
+                           XINPUT1_3.dll           (9.18.944.0) 0x0000000000400000 0x0001e000 C:\Windows\System32
+                            comctl32.dll       (10.0.18362.836) 0x00000000429f0000 0x00284000 C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.836_none_e6c4b943130f18ed
+                             dbghelp.dll           (6.11.1.404) 0x00000000612e0000 0x00169000 engine/binaries/thirdparty/dbghelp
+             gfsdk_aftermath_lib.x64.dll              (2.6.0.0) 0x00000000a5750000 0x0013d000 engine/binaries/thirdparty/nvidia/nvaftermath/win64
+                           libogg_64.dll              (1.2.2.0) 0x000000000cbf0000 0x00012000 engine/binaries/thirdparty/ogg/win64/vs2015
+                          openvr_api.dll             (1.0.10.0) 0x00000000a54b0000 0x00096000 engine/binaries/thirdparty/openvr/openvrv1_5_17/win64
+            apex_clothingprofile_x64.dll              (1.4.0.0) 0x00000000a4ca0000 0x00192000 engine/binaries/thirdparty/physx3/win64/vs2015
+        apex_destructibleprofile_x64.dll              (1.4.0.0) 0x000000009c6a0000 0x002b4000 engine/binaries/thirdparty/physx3/win64/vs2015
+              apex_legacyprofile_x64.dll              (1.4.0.0) 0x000000009c960000 0x0044a000 engine/binaries/thirdparty/physx3/win64/vs2015
+            apexframeworkprofile_x64.dll              (1.4.0.0) 0x00000000a4e40000 0x0015c000 engine/binaries/thirdparty/physx3/win64/vs2015
+                  nvclothprofile_x64.dll              (0.0.0.0) 0x00000000a4c10000 0x00046000 engine/binaries/thirdparty/physx3/win64/vs2015
+             physx3commonprofile_x64.dll              (3.4.0.0) 0x00000000a52b0000 0x001fa000 engine/binaries/thirdparty/physx3/win64/vs2015
+            physx3cookingprofile_x64.dll              (3.4.0.0) 0x00000000a4c60000 0x00040000 engine/binaries/thirdparty/physx3/win64/vs2015
+                   physx3profile_x64.dll              (3.4.0.0) 0x00000000a4fa0000 0x0030b000 engine/binaries/thirdparty/physx3/win64/vs2015
+             pxfoundationprofile_x64.dll              (1.0.0.0) 0x0000000015600000 0x0001e000 engine/binaries/thirdparty/physx3/win64/vs2015
+                 pxpvdsdkprofile_x64.dll              (1.0.0.0) 0x00000000a5e60000 0x00047000 engine/binaries/thirdparty/physx3/win64/vs2015
+                         steam_api64.dll              (1.0.0.1) 0x00000000a5eb0000 0x0004b000 engine/binaries/thirdparty/steamworks/steamv147/win64
+                        libvorbis_64.dll              (1.3.2.0) 0x000000009c410000 0x001a7000 engine/binaries/thirdparty/vorbis/win64/vs2015
+                    libvorbisfile_64.dll              (1.3.2.0) 0x000000003ff30000 0x0000e000 engine/binaries/thirdparty/vorbis/win64/vs2015
+                     xaudio2_9redist.dll              (1.0.0.1) 0x000000009c5c0000 0x000d3000 engine/binaries/thirdparty/windows/xaudio2_9/x64
+
+
+Report end!

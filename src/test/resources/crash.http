@@ -1,4 +1,4 @@
-GET http://localhost:8080/crash/list
+GET http://localhost:8080/api/crash/list
 Accept: application/json
 
 ###
@@ -18,6 +18,17 @@ There was a crash you fool!
 Content-Disposition: form-data; name="version";
 
 Development1234567
+--WebAppBoundary--
+
+###
+
+POST http://localhost:8080/api/crash/4/diagnostics
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="file.txt"
+
+< ../../src/test/resources/Diagnostics.txt
 --WebAppBoundary--
 
 ###

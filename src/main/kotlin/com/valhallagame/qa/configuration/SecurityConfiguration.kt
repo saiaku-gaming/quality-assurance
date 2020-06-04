@@ -68,7 +68,7 @@ class OauthAndPublicConfig : WebSecurityConfigurerAdapter() {
 
 
 @Configuration
-@Profile("dev")
+@Profile("default")
 class SecurityConfigDev : WebSecurityConfigurerAdapter() {
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {

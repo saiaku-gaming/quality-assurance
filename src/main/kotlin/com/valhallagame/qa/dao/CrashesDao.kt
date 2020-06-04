@@ -33,6 +33,11 @@ interface CrashesDao {
     """)
     @UseRowMapper(CrashMetadataRowMapper::class)
     fun getCrash(@Bind("id") id: Long): CrashMetadata
+
+    @SqlUpdate("""
+        UPDATE crashes SET diagnostics = :diagnostics WHERE id = :id;
+    """)
+    fun addDiagnostics(@Bind("id") id: Long, @Bind("diagnostics") diagnostics: String)
 }
 
 class CrashMetadataRowMapper : RowMapper<CrashMetadata> {
@@ -44,7 +49,8 @@ class CrashMetadataRowMapper : RowMapper<CrashMetadata> {
                 rs.getString("crash_in_version"),
                 rs.getInt("fixed_in_version"),
                 rs.getString("user_description"),
-                rs.getString("fixer_description")
+                rs.getString("fixer_description"),
+                rs.getString("diagnostics")
         )
     }
 }
@@ -56,5 +62,6 @@ data class CrashMetadata(
         val crashInVersion: String,
         val fixedInVersion: Int,
         val userDescription: String,
-        val fixerDescription: String?
+        val fixerDescription: String?,
+        val diagnostics: String?
 )

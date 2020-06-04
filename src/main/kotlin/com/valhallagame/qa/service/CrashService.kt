@@ -32,5 +32,9 @@ class CrashService(private val crashesDao: CrashesDao, environment: Environment)
     fun addCrashReport(filePath: Path, description: String, version: String): Long {
         return crashesDao.insertCrash(filePath.toString(), description, version)
     }
+
+    fun addDiagnostics(id: Long, diagnostics: String) {
+        return crashesDao.addDiagnostics(id, diagnostics)
+    }
 }
 

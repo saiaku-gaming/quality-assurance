@@ -66,7 +66,7 @@ export default class CrashList extends Vue {
   mounted() {
     fetch('/api/crash/list')
       .then(response => response.json())
-      .then(json => (this.items = json.data));
+      .then(json => (this.items = json));
   }
 }
 </script>

@@ -6,7 +6,10 @@
       :items="this.items"
     >
       <template v-slot:item.diagnostics="item">
-        <v-dialog v-model="dialog">
+        <div v-if="!item.item.diagnostics">
+          No diagnostics found :(
+        </div>
+        <v-dialog v-else v-model="dialog">
           <template v-slot:activator="{ on }">
             <v-btn color="primary" small v-on="on">Click me!</v-btn>
           </template>
@@ -35,10 +38,10 @@
 </template>
 
 <script lang="ts">
-  import {Component, Vue} from 'vue-property-decorator';
-  import axios from 'axios';
+import { Component, Vue } from 'vue-property-decorator';
+import axios from 'axios';
 
-  interface Header {
+interface Header {
   text: string;
   align: string;
   sortable: boolean;

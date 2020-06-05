@@ -25,6 +25,7 @@ class BasicConfig : WebSecurityConfigurerAdapter() {
                 .antMatchers("/**").authenticated()
                 .and()
                 .httpBasic()
+        http.cors().and().csrf().disable()
     }
 
     @Bean

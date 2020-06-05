@@ -47,21 +47,9 @@ class CrashController(private val crashesDao: CrashesDao, private val crashServi
                 .body(resource)
     }
 
-    @PostMapping(path = ["/{id}/diagnostics"], consumes = ["multipart/form-data"])
-    fun addDiagnostics(request: HttpServletRequest, @PathVariable("id") id: Long): Map<String, String> {
+    @PostMapping(path = ["/{id}/diagnostics"], consumes = ["text/plain"])
+    fun addDiagnostics(@PathVariable("id") id: Long, @RequestBody diagnostics: String): Map<String, String> {
         logger.info("add diagnostics called")
-        val upload = ServletFileUpload()
-        val iterStream: FileItemIterator = upload.getItemIterator(request)
-        var diagnostics = ""
-
-        while (iterStream.hasNext()) {
-            val item: FileItemStream = iterStream.next()
-            val stream: InputStream = item.openStream()
-            diagnostics = Streams.asString(stream)
-        }
-        if (diagnostics.isEmpty()) {
-            return mapOf("status" to "could not parse diagnostics")
-        }
         crashService.addDiagnostics(id, diagnostics)
         return mapOf("status" to "ok")
     }
